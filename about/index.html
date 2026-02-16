@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>О компании - ПеревозкаБытовок.рф | 10+ лет на рынке</title>
+    <meta name="description" content="О компании ПеревозкаБытовок.рф - 10+ лет опыта, 5000+ успешных перевозок, собственный парк техники. Профессиональная транспортировка бытовок в Москве и области.">
+    <meta name="keywords" content="о компании, перевозка бытовок москва, транспортная компания, опыт работы, команда профессионалов">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="О компании ПеревозкаБытовок.рф">
+    <meta property="og:description" content="Лидер рынка перевозки бытовок. 10+ лет опыта, современная техника, профессиональная команда">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/about/index.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/about/index.html">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages.css">
+
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(249, 115, 22, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f97316;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .about-section {
+            padding: 3rem 0;
+        }
+
+        .about-section h2 {
+            color: #1f2937;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #f97316;
+        }
+
+        .about-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid #f97316;
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .value-card h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            background: #f9fafb;
+            padding: 3rem 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-member h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #f97316;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-member p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .equipment-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .equipment-header {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .equipment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .equipment-header h3 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .equipment-body {
+            padding: 1.5rem;
+        }
+
+        .equipment-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .equipment-body li {
+            padding: 0.5rem 0;
+            color: #4b5563;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .equipment-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f97316;
+            font-weight: 700;
+        }
+
+        .certifications {
+            background: #fff7ed;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .certifications h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .cert-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 {
+            color: #1f2937;
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-info p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .why-choose {
+            background: white;
+            padding: 3rem 0;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #f97316;
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h4 {
+            color: #1f2937;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-content p {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 2rem;
+            bottom: -2rem;
+            width: 2px;
+            background: #e5e7eb;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #f97316;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .timeline-content h3 {
+            color: #1f2937;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-year {
+            color: #f97316;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        .cta-about {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-about p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ПеревозкаБытовок.рф",
+      "description": "Профессиональная перевозка бытовок в Москве и Московской области",
+      "url": "https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai",
+      "telephone": "+79991234567",
+      "email": "info@перевозка-бытовок.рф",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "foundingDate": "2015",
+      "numberOfEmployees": "25",
+      "areaServed": {
+        "@type": "Place",
+        "name": "Москва и Московская область"
+      }
+    }
+    </script>
+</head>
+<body class="page-about">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="/index.html">ПеревозкаБытовок.рф</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">☰</label>
+
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Главная</a></li>
+                    <li class="has-dropdown">
+                        <a href="/services/index.html">Услуги</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                            <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                            <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                            <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                            <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                            <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pricing/index.html">Цены</a></li>
+                    <li><a href="/gallery/index.html">Галерея</a></li>
+                    <li><a href="/reviews/index.html">Отзывы</a></li>
+                    <li><a href="/faq/index.html">FAQ</a></li>
+                    <li><a href="/contacts/index.html">Контакты</a></li>
+                </ul>
+
+                <a href="tel:+79991234567" class="phone-btn">+7 (999) 123-45-67</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="/index.html">Главная</a></li>
+                <li aria-current="page">О компании</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>О компании ПеревозкаБытовок.рф</h1>
+            <p>Мы - команда профессионалов с более чем 10-летним опытом в сфере перевозки бытовок и строительных конструкций. Наша миссия - обеспечить безопасную и своевременную доставку вашего груза.</p>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">лет на рынке</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5000+</span>
+                    <span class="stat-label">перевезенных бытовок</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">единиц техники</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1200+</span>
+                    <span class="stat-label">довольных клиентов</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99.8%</span>
+                    <span class="stat-label">доставок без повреждений</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">работаем круглосуточно</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company History -->
+    <section class="section">
+        <div class="container">
+            <div class="about-section">
+                <h2>История компании</h2>
+                <div class="about-content">
+                    <p>Компания ПеревозкаБытовок.рф была основана в 2015 году группой профессионалов с большим опытом в сфере грузоперевозок и эксплуатации специальной техники. За годы работы мы превратились из небольшой транспортной компании в одного из лидеров рынка перевозки бытовок в Московском регионе.</p>
+                    <p>Наш путь начался с двух эвакуаторов и небольшой команды энтузиастов. Сегодня в нашем распоряжении современный парк техники из 25 единиц различного назначения, включая автокраны грузоподъемностью до 25 тонн, манипуляторы, эвакуаторы и специализированные тралы.</p>
+                    <p>За время работы мы выполнили более 5000 успешных перевозок для частных лиц, строительных компаний, производственных предприятий и государственных организаций. Каждый проект для нас - это не просто работа, а возможность доказать свой профессионализм и заслужить доверие клиента.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot">1</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2015 год</div>
+                            <h3>Основание компании</h3>
+                            <p>Начало работы с 2 эвакуаторами и командой из 5 человек. Первые 50 успешных перевозок.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">2</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2017 год</div>
+                            <h3>Расширение автопарка</h3>
+                            <p>Приобретение первого автокрана и манипулятора. Выход на рынок перевозки тяжелых бытовок.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">3</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019 год</div>
+                            <h3>Лицензии и сертификаты</h3>
+                            <p>Получение всех необходимых лицензий и сертификатов. Начало работы с крупными строительными компаниями.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">4</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021 год</div>
+                            <h3>Собственная база</h3>
+                            <p>Открытие охраняемой площадки для хранения бытовок площадью 5000 кв.м.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">5</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023 год</div>
+                            <h3>Лидер рынка</h3>
+                            <p>Выполнено более 1000 перевозок за год. Парк техники вырос до 25 единиц.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot">6</div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2026 год</div>
+                            <h3>Новые горизонты</h3>
+                            <p>Внедрение цифровых технологий, расширение географии работы, развитие дополнительных услуг.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="about-section">
+                <h2>Наши ценности</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-icon">🎯</span>
+                        <h3>Профессионализм</h3>
+                        <p>Наша команда состоит исключительно из опытных специалистов с профильным образованием и подтвержденной квалификацией. Мы постоянно повышаем уровень подготовки и следим за новейшими технологиями в отрасли.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">🤝</span>
+                        <h3>Надежность</h3>
+                        <p>Мы выполняем взятые на себя обязательства в полном объеме и в срок. Каждый груз застрахован, каждая перевозка тщательно планируется, каждый клиент может быть уверен в нас.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">💯</span>
+                        <h3>Качество</h3>
+                        <p>Мы не идем на компромиссы в вопросах качества услуг. Используем только исправную сертифицированную технику, соблюдаем все требования безопасности и стандарты отрасли.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">⚡</span>
+                        <h3>Оперативность</h3>
+                        <p>Понимаем ценность вашего времени. Готовы выехать на объект в кратчайшие сроки, обеспечиваем круглосуточную поддержку и быстрое реагирование на запросы клиентов.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">💰</span>
+                        <h3>Честность</h3>
+                        <p>Прозрачное ценообразование без скрытых платежей. Озвучиваем точную стоимость после осмотра объекта. Все условия фиксируются в договоре.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon">🌟</span>
+                        <h3>Клиентоориентированность</h3>
+                        <p>Каждый клиент для нас важен. Мы внимательно слушаем ваши потребности, предлагаем оптимальные решения и сопровождаем на всех этапах сотрудничества.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team-section">
+        <div class="container">
+            <div class="about-section">
+                <h2>Наша команда</h2>
+                <p class="about-content">Профессиональная команда - наше главное конкурентное преимущество. Все сотрудники проходят обязательное обучение, имеют необходимые сертификаты и регулярно повышают квалификацию.</p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍💼</div>
+                        <h3>Михаил Петров</h3>
+                        <div class="team-role">Генеральный директор</div>
+                        <p>15 лет в сфере грузоперевозок. Отвечает за стратегическое развитие компании и работу с ключевыми клиентами.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍🔧</div>
+                        <h3>Сергей Иванов</h3>
+                        <div class="team-role">Технический директор</div>
+                        <p>Инженер-механик, 12 лет опыта работы со спецтехникой. Руководит техническим отделом и обслуживанием парка.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👩‍💼</div>
+                        <h3>Елена Смирнова</h3>
+                        <div class="team-role">Руководитель отдела продаж</div>
+                        <p>10 лет в сфере логистики. Координирует работу менеджеров и обеспечивает высокий уровень сервиса.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍🏭</div>
+                        <h3>Андрей Козлов</h3>
+                        <div class="team-role">Начальник логистики</div>
+                        <p>Планирует маршруты, координирует работу водителей и операторов техники. 8 лет в компании.</p>
+                    </div>
+                </div>
+
+                <div class="about-content" style="margin-top: 2rem;">
+                    <h3 style="color: #1f2937; margin-bottom: 1rem;">Наш коллектив</h3>
+                    <p>В команде работают более 25 специалистов:</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>12 опытных водителей-операторов спецтехники</li>
+                        <li>5 крановщиков с высшей квалификацией</li>
+                        <li>4 менеджера по работе с клиентами</li>
+                        <li>2 специалиста по логистике</li>
+                        <li>2 механика по обслуживанию техники</li>
+                    </ul>
+                    <p>Все сотрудники прошли обучение по охране труда, имеют медицинские допуски и необходимые сертификаты для работы со спецтехникой.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment -->
+    <section class="section">
+        <div class="container">
+            <div class="about-section">
+                <h2>Наше оборудование и техника</h2>
+                <p class="about-content">Собственный парк современной техники позволяет нам оперативно реагировать на заказы и гарантировать выполнение работ в срок. Вся техника регулярно проходит техническое обслуживание и имеет необходимые сертификаты.</p>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-header">
+                            <div class="equipment-icon">🚛</div>
+                            <h3>Эвакуаторы</h3>
+                        </div>
+                        <div class="equipment-body">
+                            <ul>
+                                <li>8 единиц в парке</li>
+                                <li>Грузоподъемность до 3 тонн</li>
+                                <li>Длина платформы до 7 метров</li>
+                                <li>Выдвижная платформа</li>
+                                <li>Гидравлическая лебедка</li>
+                                <li>Круглосуточная готовность</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-header">
+                            <div class="equipment-icon">🏗️</div>
+                            <h3>Автокраны</h3>
+                        </div>
+                        <div class="equipment-body">
+                            <ul>
+                                <li>6 автокранов различной мощности</li>
+                                <li>Грузоподъемность 10-25 тонн</li>
+                                <li>Длина стрелы до 28 метров</li>
+                                <li>Телескопическая стрела</li>
+                                <li>Современные системы безопасности</li>
+                                <li>Опытные крановщики</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-header">
+                            <div class="equipment-icon">🚜</div>
+                            <h3>Манипуляторы</h3>
+                        </div>
+                        <div class="equipment-body">
+                            <ul>
+                                <li>7 манипуляторов в парке</li>
+                                <li>Грузоподъемность крана до 10 тонн</li>
+                                <li>Платформа до 8 метров</li>
+                                <li>Вылет стрелы до 12 метров</li>
+                                <li>Универсальность применения</li>
+                                <li>Повышенная проходимость</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-header">
+                            <div class="equipment-icon">🚚</div>
+                            <h3>Тралы</h3>
+                        </div>
+                        <div class="equipment-body">
+                            <ul>
+                                <li>4 низкорамных трала</li>
+                                <li>Грузоподъемность до 40 тонн</li>
+                                <li>Длина платформы до 12 метров</li>
+                                <li>Выдвижные трапы</li>
+                                <li>Для негабаритных грузов</li>
+                                <li>Специальные крепления</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="about-section">
+                <h2>Лицензии и сертификаты</h2>
+                <div class="certifications">
+                    <h3>Наша компания имеет все необходимые разрешительные документы</h3>
+                    <div class="cert-grid">
+                        <div class="cert-item">
+                            <div class="cert-icon">📋</div>
+                            <div class="cert-info">
+                                <h4>Лицензия на перевозки</h4>
+                                <p>Лицензия на перевозку крупногабаритных и тяжеловесных грузов</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">✅</div>
+                            <div class="cert-info">
+                                <h4>Сертификаты техники</h4>
+                                <p>Все единицы техники имеют действующие сертификаты соответствия</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">🎓</div>
+                            <div class="cert-info">
+                                <h4>Квалификация персонала</h4>
+                                <p>Свидетельства о допуске специалистов к работе со спецтехникой</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">🛡️</div>
+                            <div class="cert-info">
+                                <h4>Страхование</h4>
+                                <p>Полис страхования грузов и профессиональной ответственности</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">⚙️</div>
+                            <div class="cert-info">
+                                <h4>Разрешения Ростехнадзора</h4>
+                                <p>Разрешения на эксплуатацию грузоподъемных механизмов</p>
+                            </div>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-icon">📜</div>
+                            <div class="cert-info">
+                                <h4>СРО</h4>
+                                <p>Членство в саморегулируемой организации в области перевозок</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="about-section">
+                <h2>Почему выбирают нас</h2>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🔧</div>
+                        <div class="benefit-content">
+                            <h4>Собственный парк техники</h4>
+                            <p>25 единиц современной спецтехники различного назначения. Не зависим от подрядчиков, гарантируем выезд в срок.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏰</div>
+                        <div class="benefit-content">
+                            <h4>Работаем круглосуточно</h4>
+                            <p>Принимаем заказы 24/7, готовы выехать в любое время суток, включая выходные и праздники.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">💰</div>
+                        <div class="benefit-content">
+                            <h4>Честные цены</h4>
+                            <p>Прозрачное ценообразование, точный расчет после осмотра, никаких скрытых платежей и доплат.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛡️</div>
+                        <div class="benefit-content">
+                            <h4>100% гарантия</h4>
+                            <p>Все грузы застрахованы. В случае повреждения - полная компенсация согласно договору.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📝</div>
+                        <div class="benefit-content">
+                            <h4>Полный пакет документов</h4>
+                            <p>Работаем с физическими и юридическими лицами. Предоставляем все необходимые документы.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-content">
+                            <h4>Срочная перевозка</h4>
+                            <p>Можем выехать на объект в течение 2-4 часов. Выполняем срочные заказы в любое время.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div class="benefit-content">
+                            <h4>Опытные специалисты</h4>
+                            <p>Все операторы имеют опыт работы от 5 лет, регулярно проходят обучение и повышают квалификацию.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🗺️</div>
+                        <div class="benefit-content">
+                            <h4>Работаем по всей области</h4>
+                            <p>Выполняем перевозки в Москве и Московской области, готовы выехать в другие регионы.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📦</div>
+                        <div class="benefit-content">
+                            <h4>Комплекс услуг</h4>
+                            <p>Помимо перевозки предлагаем установку, подключение коммуникаций, хранение и демонтаж.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-about">
+                <h2>Готовы начать сотрудничество?</h2>
+                <p>Свяжитесь с нами для бесплатной консультации и расчета стоимости перевозки</p>
+                <div class="cta-buttons">
+                    <a href="tel:+79991234567" class="btn btn-primary btn-large" style="background: #f97316; border: none;">Позвонить: +7 (999) 123-45-67</a>
+                    <a href="/contacts/index.html" class="btn btn-secondary btn-large" style="background: white; color: #1f2937; border: none;">Оставить заявку</a>
+                    <a href="/pricing/kalkulyator.html" class="btn btn-large" style="background: transparent; color: white; border: 2px solid white;">Рассчитать стоимость</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                        <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                        <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                        <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                        <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                        <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="/info/kak-proiskhodit-perevozka.html">Как происходит перевозка</a></li>
+                        <li><a href="/info/dokumenty.html">Необходимые документы</a></li>
+                        <li><a href="/info/trebovaniya-bezopasnosti.html">Требования безопасности</a></li>
+                        <li><a href="/info/sovety.html">Советы по подготовке</a></li>
+                        <li><a href="/pricing/index.html">Цены</a></li>
+                        <li><a href="/about/index.html">О компании</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Регионы</h3>
+                    <ul>
+                        <li><a href="/regions/moskva.html">Москва</a></li>
+                        <li><a href="/regions/moskovskaya-oblast.html">Московская область</a></li>
+                        <li><a href="/regions/sankt-peterburg.html">Санкт-Петербург</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                    <p><strong>Email:</strong> info@перевозка-бытовок.рф</p>
+                    <p><strong>Режим работы:</strong> Круглосуточно, без выходных</p>
+                    <p><strong>Адрес:</strong> г. Москва</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ПеревозкаБытовок.рф. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

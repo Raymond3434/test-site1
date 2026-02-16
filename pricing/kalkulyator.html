@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Калькулятор стоимости перевозки бытовок | Рассчитать цену онлайн | ПеревозкаБытовок.рф</title>
+    <meta name="description" content="Онлайн калькулятор для расчета стоимости перевозки бытовок. Узнайте точную цену за 1 минуту. Учитываем все параметры: расстояние, вес, тип бытовки.">
+    <meta name="keywords" content="калькулятор перевозки бытовок, рассчитать стоимость, онлайн расчет, цена перевозки">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Калькулятор стоимости перевозки бытовок">
+    <meta property="og:description" content="Рассчитайте стоимость перевозки онлайн за 1 минуту">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/pricing/kalkulyator.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/pricing/kalkulyator.html">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages.css">
+
+    <style>
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f97316;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .helper-text {
+            font-size: 0.875rem;
+            color: var(--color-text-light);
+            margin-top: 0.25rem;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            text-align: center;
+            display: none;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+
+        .result-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .result-details {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        .result-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .result-details li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .result-details li:last-child {
+            border-bottom: none;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #f97316;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .calc-btn:hover {
+            background: #ea580c;
+        }
+
+        .info-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-option label {
+            display: block;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            border-color: #f97316;
+            background: #fff7ed;
+            color: #f97316;
+            font-weight: 600;
+        }
+
+        .radio-option label:hover {
+            border-color: #f97316;
+        }
+    </style>
+</head>
+<body class="page-calculator">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="/index.html">ПеревозкаБытовок.рф</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">☰</label>
+
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Главная</a></li>
+                    <li class="has-dropdown">
+                        <a href="/services/index.html">Услуги</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                            <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                            <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                            <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                            <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                            <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pricing/index.html" class="active">Цены</a></li>
+                    <li><a href="/gallery/index.html">Галерея</a></li>
+                    <li><a href="/reviews/index.html">Отзывы</a></li>
+                    <li><a href="/faq/index.html">FAQ</a></li>
+                    <li><a href="/contacts/index.html">Контакты</a></li>
+                </ul>
+
+                <a href="tel:+79991234567" class="phone-btn">+7 (999) 123-45-67</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="/index.html">Главная</a></li>
+                <li><a href="/pricing/index.html">Цены</a></li>
+                <li aria-current="page">Калькулятор</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Калькулятор стоимости перевозки</h1>
+            <p class="lead">Рассчитайте точную стоимость перевозки вашей бытовки за 1 минуту</p>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="info-box">
+                    <strong>Обратите внимание:</strong> Калькулятор показывает примерную стоимость. Для точного расчета с учетом всех особенностей объекта позвоните нам или оставьте заявку.
+                </div>
+
+                <form id="calculatorForm">
+                    <div class="form-group">
+                        <label>Способ транспортировки</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="transport-crane" name="transport" value="crane" checked>
+                                <label for="transport-crane">
+                                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🏗️</div>
+                                    Автокран
+                                </label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="transport-evacuator" name="transport" value="evacuator">
+                                <label for="transport-evacuator">
+                                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚛</div>
+                                    Эвакуатор
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="distance">Расстояние перевозки (км)</label>
+                            <input type="number" id="distance" name="distance" min="1" max="500" value="10" required>
+                            <div class="helper-text">Расстояние от места загрузки до места разгрузки</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight">Вес бытовки (тонн)</label>
+                            <input type="number" id="weight" name="weight" min="0.5" max="25" step="0.5" value="2" required>
+                            <div class="helper-text">Примерный вес вашей бытовки</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bytovka-type">Тип бытовки</label>
+                        <select id="bytovka-type" name="bytovka-type" required>
+                            <option value="standard">Стандартная строительная</option>
+                            <option value="metal">Металлическая</option>
+                            <option value="wood">Деревянная</option>
+                            <option value="insulated">Утепленная с отделкой</option>
+                            <option value="modular">Модульная/блок-контейнер</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="length">Длина бытовки (м)</label>
+                            <input type="number" id="length" name="length" min="2" max="12" step="0.5" value="6" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="width">Ширина бытовки (м)</label>
+                            <input type="number" id="width" name="width" min="2" max="4" step="0.5" value="2.4" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Дополнительные услуги</label>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <label style="display: flex; align-items: center; font-weight: normal;">
+                                <input type="checkbox" id="urgent" name="urgent" style="width: auto; margin-right: 0.5rem;">
+                                Срочная перевозка (до 24 часов) +30%
+                            </label>
+                            <label style="display: flex; align-items: center; font-weight: normal;">
+                                <input type="checkbox" id="dismantling" name="dismantling" style="width: auto; margin-right: 0.5rem;">
+                                Демонтаж коммуникаций +2000₽
+                            </label>
+                            <label style="display: flex; align-items: center; font-weight: normal;">
+                                <input type="checkbox" id="installation" name="installation" style="width: auto; margin-right: 0.5rem;">
+                                Установка на фундамент +3000₽
+                            </label>
+                            <label style="display: flex; align-items: center; font-weight: normal;">
+                                <input type="checkbox" id="connection" name="connection" style="width: auto; margin-right: 0.5rem;">
+                                Подключение коммуникаций +3500₽
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Желаемая дата перевозки</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <button type="submit" class="calc-btn">Рассчитать стоимость</button>
+                </form>
+
+                <div id="resultBox" class="result-box">
+                    <h2 style="margin-top: 0;">Стоимость перевозки</h2>
+                    <div class="result-price" id="resultPrice">0 ₽</div>
+                    <p style="font-size: 0.9rem; opacity: 0.9;">Примерная стоимость с учетом указанных параметров</p>
+
+                    <div class="result-details">
+                        <h3 style="margin-top: 0; font-size: 1.1rem;">Детали расчета:</h3>
+                        <ul id="resultDetails"></ul>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="/contacts/index.html" class="btn btn-large" style="background: white; color: #f97316; display: inline-block; text-decoration: none;">Оформить заявку</a>
+                        <a href="tel:+79991234567" class="btn btn-large" style="background: rgba(255,255,255,0.2); color: white; display: inline-block; text-decoration: none; margin-left: 1rem;">Позвонить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <h2 class="section-title">Как формируется стоимость</h2>
+            <div class="grid grid-3">
+                <div class="info-card">
+                    <h3 style="color: #f97316;">Базовый тариф</h3>
+                    <p>Зависит от расстояния и способа транспортировки. Краном дороже, но безопаснее для тяжелых бытовок.</p>
+                </div>
+                <div class="info-card">
+                    <h3 style="color: #f97316;">Коэффициенты</h3>
+                    <p>Вес, габариты и тип бытовки влияют на итоговую стоимость через повышающие или понижающие коэффициенты.</p>
+                </div>
+                <div class="info-card">
+                    <h3 style="color: #f97316;">Доп. услуги</h3>
+                    <p>Демонтаж, установка, срочность — все опции добавляются отдельно и согласовываются с вами заранее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Block -->
+    <section class="cta-block">
+        <div class="container">
+            <h2>Остались вопросы?</h2>
+            <p>Наши специалисты помогут уточнить детали и рассчитать точную стоимость</p>
+            <div class="cta-buttons">
+                <a href="tel:+79991234567" class="btn btn-primary btn-large">Позвонить: +7 (999) 123-45-67</a>
+                <a href="/contacts/index.html" class="btn btn-secondary btn-large" style="background: white; color: #f97316;">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                        <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                        <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                        <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                        <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                        <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="/info/kak-proiskhodit-perevozka.html">Как происходит перевозка</a></li>
+                        <li><a href="/info/dokumenty.html">Необходимые документы</a></li>
+                        <li><a href="/info/trebovaniya-bezopasnosti.html">Требования безопасности</a></li>
+                        <li><a href="/info/sovety.html">Советы по подготовке</a></li>
+                        <li><a href="/pricing/index.html">Цены</a></li>
+                        <li><a href="/about/index.html">О компании</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Регионы</h3>
+                    <ul>
+                        <li><a href="/regions/moskva.html">Москва</a></li>
+                        <li><a href="/regions/moskovskaya-oblast.html">Московская область</a></li>
+                        <li><a href="/regions/sankt-peterburg.html">Санкт-Петербург</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                    <p><strong>Email:</strong> info@перевозка-бытовок.рф</p>
+                    <p><strong>Режим работы:</strong> Круглосуточно, без выходных</p>
+                    <p><strong>Адрес:</strong> г. Москва</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ПеревозкаБытовок.рф. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set min date to today
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+        dateInput.value = today;
+
+        // Calculator logic
+        document.getElementById('calculatorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const transport = document.querySelector('input[name="transport"]:checked').value;
+            const distance = parseFloat(document.getElementById('distance').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const urgent = document.getElementById('urgent').checked;
+            const dismantling = document.getElementById('dismantling').checked;
+            const installation = document.getElementById('installation').checked;
+            const connection = document.getElementById('connection').checked;
+
+            // Base price calculation
+            let basePrice = 0;
+
+            if (transport === 'crane') {
+                if (distance <= 5) basePrice = 7000;
+                else if (distance <= 15) basePrice = 9000;
+                else if (distance <= 30) basePrice = 12000;
+                else if (distance <= 50) basePrice = 15000;
+                else if (distance <= 100) basePrice = 20000;
+                else basePrice = 20000 + (distance - 100) * 150;
+            } else {
+                if (distance <= 5) basePrice = 5000;
+                else if (distance <= 15) basePrice = 6500;
+                else if (distance <= 30) basePrice = 8500;
+                else if (distance <= 50) basePrice = 11000;
+                else if (distance <= 100) basePrice = 15000;
+                else basePrice = 15000 + (distance - 100) * 100;
+            }
+
+            // Weight coefficient
+            let weightCoef = 1;
+            if (weight > 3 && transport === 'evacuator') {
+                weightCoef = 1.3; // Heavy for evacuator
+            } else if (weight > 5) {
+                weightCoef = 1.2;
+            } else if (weight > 10) {
+                weightCoef = 1.4;
+            }
+
+            let totalPrice = basePrice * weightCoef;
+
+            // Additional services
+            let additionalCost = 0;
+            if (dismantling) additionalCost += 2000;
+            if (installation) additionalCost += 3000;
+            if (connection) additionalCost += 3500;
+
+            totalPrice += additionalCost;
+
+            // Urgent surcharge
+            if (urgent) {
+                totalPrice *= 1.3;
+            }
+
+            // Round to nearest 100
+            totalPrice = Math.round(totalPrice / 100) * 100;
+
+            // Display results
+            document.getElementById('resultPrice').textContent = totalPrice.toLocaleString('ru-RU') + ' ₽';
+
+            const details = [];
+            details.push(`<li><strong>Способ:</strong> ${transport === 'crane' ? 'Автокран' : 'Эвакуатор'}</li>`);
+            details.push(`<li><strong>Расстояние:</strong> ${distance} км</li>`);
+            details.push(`<li><strong>Вес:</strong> ${weight} т</li>`);
+            details.push(`<li><strong>Базовая стоимость:</strong> ${basePrice.toLocaleString('ru-RU')} ₽</li>`);
+            if (weightCoef > 1) {
+                details.push(`<li><strong>Коэффициент веса:</strong> ×${weightCoef}</li>`);
+            }
+            if (additionalCost > 0) {
+                details.push(`<li><strong>Доп. услуги:</strong> +${additionalCost.toLocaleString('ru-RU')} ₽</li>`);
+            }
+            if (urgent) {
+                details.push(`<li><strong>Срочность:</strong> +30%</li>`);
+            }
+
+            document.getElementById('resultDetails').innerHTML = details.join('');
+            document.getElementById('resultBox').classList.add('show');
+
+            // Scroll to result
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+</body>
+</html>

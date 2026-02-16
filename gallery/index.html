@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Фотогалерея выполненных работ | Перевозка бытовок | ПеревозкаБытовок.рф</title>
+    <meta name="description" content="Галерея наших работ по перевозке бытовок. Фотографии завершенных проектов, довольные клиенты, современная техника. Более 1000 выполненных заказов.">
+    <meta name="keywords" content="фото перевозки бытовок, галерея работ, примеры перевозки, наши работы, Москва">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Фотогалерея выполненных работ по перевозке бытовок">
+    <meta property="og:description" content="Смотрите примеры наших работ. Более 1000 успешно перевезенных бытовок.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/gallery/index.html">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://xn----7sbebdner1ae1bfbcq4b6k.xn--p1ai/gallery/index.html">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/pages.css">
+
+    <style>
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--color-text);
+        }
+
+        .filter-btn:hover {
+            border-color: #f97316;
+            color: #f97316;
+        }
+
+        .filter-btn.active {
+            background: #f97316;
+            color: white;
+            border-color: #f97316;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .gallery-image::after {
+            content: attr(data-text);
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            font-size: 0.875rem;
+            background: rgba(0,0,0,0.6);
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+        }
+
+        .gallery-caption h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--color-text);
+            font-size: 1.1rem;
+        }
+
+        .gallery-caption p {
+            margin: 0;
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .gallery-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+
+        .gallery-tag {
+            padding: 0.25rem 0.75rem;
+            background: #fff7ed;
+            color: #f97316;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 3rem 0;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="page-gallery">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="/index.html">ПеревозкаБытовок.рф</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">☰</label>
+
+                <ul class="nav-menu">
+                    <li><a href="/index.html">Главная</a></li>
+                    <li class="has-dropdown">
+                        <a href="/services/index.html">Услуги</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                            <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                            <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                            <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                            <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                            <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/pricing/index.html">Цены</a></li>
+                    <li><a href="/gallery/index.html" class="active">Галерея</a></li>
+                    <li><a href="/reviews/index.html">Отзывы</a></li>
+                    <li><a href="/faq/index.html">FAQ</a></li>
+                    <li><a href="/contacts/index.html">Контакты</a></li>
+                </ul>
+
+                <a href="tel:+79991234567" class="phone-btn">+7 (999) 123-45-67</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol>
+                <li><a href="/index.html">Главная</a></li>
+                <li aria-current="page">Галерея</li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Галерея выполненных работ</h1>
+            <p class="lead">Фотографии наших проектов по перевозке бытовок. Более 1000 довольных клиентов с 2015 года.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Перевезенных бытовок</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Лет на рынке</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Довольных клиентов</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Работаем круглосуточно</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все работы</button>
+                <button class="filter-btn" data-filter="crane">Перевозка краном</button>
+                <button class="filter-btn" data-filter="evacuator">Эвакуатор</button>
+                <button class="filter-btn" data-filter="metal">Металлические</button>
+                <button class="filter-btn" data-filter="wood">Деревянные</button>
+                <button class="filter-btn" data-filter="modular">Модульные</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Item 1 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="6×2.4м, 3.5т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Перевозка металлической бытовки</h3>
+                        <p>Москва, СВАО. Транспортировка краном на 25 км. Установка на бетонные блоки.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item" data-category="evacuator wood">
+                    <div class="gallery-image" data-text="5×2.3м, 2т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Деревянная бытовка на эвакуаторе</h3>
+                        <p>Подмосковье, дачный участок. Перевозка эвакуатором на 15 км без крана.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item" data-category="crane modular">
+                    <div class="gallery-image" data-text="9×2.4м, 5т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Модульный блок-контейнер</h3>
+                        <p>Москва, ЗАО. Крупногабаритный контейнер с внутренней отделкой. Кран 20т.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Модульная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="6×2.4м, 3.2т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Строительная бытовка</h3>
+                        <p>Москва, ЮАО. Перевозка на стройплощадку. Установка на фундамент из блоков.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item" data-category="evacuator wood">
+                    <div class="gallery-image" data-text="4×2м, 1.5т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Компактная деревянная бытовка</h3>
+                        <p>Московская область. Легкая дачная бытовка. Быстрая перевозка эвакуатором.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="7×2.5м, 4т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Утепленная бытовка с отделкой</h3>
+                        <p>Москва, САО. Бытовка с внутренней отделкой. Аккуратная перевозка краном.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="gallery-item" data-category="crane wood">
+                    <div class="gallery-image" data-text="6×2.4м, 2.5т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Деревянная бытовка на дачу</h3>
+                        <p>Подмосковье, 40 км от МКАД. Установка на винтовые сваи с помощью крана.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="gallery-item" data-category="crane modular">
+                    <div class="gallery-image" data-text="12×2.4м, 6т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Длинномерная модульная бытовка</h3>
+                        <p>Москва, ВАО. Перевозка крупногабаритного модуля. Кран 25т с телескопом.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Модульная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 9 -->
+                <div class="gallery-item" data-category="evacuator metal">
+                    <div class="gallery-image" data-text="5×2.3м, 2.2т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Стандартная металлическая бытовка</h3>
+                        <p>Москва, внутри МКАД. Быстрая перевозка эвакуатором на 8 км.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 10 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="6×2.4м, 3.8т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Офисная бытовка</h3>
+                        <p>Москва, ЗелАО. Бытовка-офис с окнами и дверью. Перевозка на стройплощадку.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 11 -->
+                <div class="gallery-item" data-category="evacuator wood">
+                    <div class="gallery-image" data-text="6×2м, 1.8т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Садовая деревянная бытовка</h3>
+                        <p>Дмитровское направление. Легкая деревянная бытовка для дачи.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 12 -->
+                <div class="gallery-item" data-category="crane modular">
+                    <div class="gallery-image" data-text="8×2.5м, 5.5т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Блок-контейнер с санузлом</h3>
+                        <p>Москва, ЮВАО. Модульный контейнер с санузлом и душевой. Сложная установка.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Модульная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 13 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="6×2.4м, 3.3т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Бытовка для охраны</h3>
+                        <p>Москва, СЗАО. Компактная бытовка для КПП. Установка на подготовленную площадку.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 14 -->
+                <div class="gallery-item" data-category="crane wood">
+                    <div class="gallery-image" data-text="7×2.5м, 2.8т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Жилая деревянная бытовка</h3>
+                        <p>Подмосковье. Утепленная деревянная бытовка для временного проживания.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 15 -->
+                <div class="gallery-item" data-category="evacuator metal">
+                    <div class="gallery-image" data-text="5×2.3м, 2.4т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Бытовка-склад</h3>
+                        <p>Москва. Металлическая бытовка для хранения инструмента. Перевозка на 12 км.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 16 -->
+                <div class="gallery-item" data-category="crane modular">
+                    <div class="gallery-image" data-text="10×2.5м, 6.5т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Двухсекционная бытовка</h3>
+                        <p>Москва, ТАО. Крупная модульная бытовка на две секции. Мощный автокран.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Модульная</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 17 -->
+                <div class="gallery-item" data-category="crane metal">
+                    <div class="gallery-image" data-text="6×2.4м, 3.6т">🏗️</div>
+                    <div class="gallery-caption">
+                        <h3>Вахтовая бытовка</h3>
+                        <p>Москва, промзона. Бытовка для проживания рабочих. Установка краном на площадку.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Автокран</span>
+                            <span class="gallery-tag">Металлическая</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 18 -->
+                <div class="gallery-item" data-category="evacuator wood">
+                    <div class="gallery-image" data-text="4.5×2м, 1.6т">🚛</div>
+                    <div class="gallery-caption">
+                        <h3>Мини-бытовка</h3>
+                        <p>Подмосковье, СНТ. Небольшая деревянная бытовка для садового участка.</p>
+                        <div class="gallery-tags">
+                            <span class="gallery-tag">Эвакуатор</span>
+                            <span class="gallery-tag">Деревянная</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section bg-gray">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="grid grid-3">
+                <div class="info-card">
+                    <div style="font-size: 3rem; color: #f97316; margin-bottom: 1rem;">📸</div>
+                    <h3>Фотоотчет</h3>
+                    <p>Делаем фото до, во время и после перевозки. Вы всегда в курсе происходящего.</p>
+                </div>
+                <div class="info-card">
+                    <div style="font-size: 3rem; color: #f97316; margin-bottom: 1rem;">🛡️</div>
+                    <h3>Страхование</h3>
+                    <p>Все бытовки застрахованы. Гарантируем сохранность вашего имущества.</p>
+                </div>
+                <div class="info-card">
+                    <div style="font-size: 3rem; color: #f97316; margin-bottom: 1rem;">⭐</div>
+                    <h3>Опыт</h3>
+                    <p>Более 10 лет на рынке. Опытные специалисты и современное оборудование.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Block -->
+    <section class="cta-block">
+        <div class="container">
+            <h2>Закажите перевозку бытовки</h2>
+            <p>Работаем так же качественно, как показано в галерее. Гарантия сохранности.</p>
+            <div class="cta-buttons">
+                <a href="tel:+79991234567" class="btn btn-primary btn-large">Позвонить: +7 (999) 123-45-67</a>
+                <a href="/contacts/index.html" class="btn btn-secondary btn-large" style="background: white; color: #f97316;">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="/services/perevozka-bytovok-kranom.html">Перевозка краном</a></li>
+                        <li><a href="/services/evakuator-bytovok.html">Эвакуатор</a></li>
+                        <li><a href="/services/perevozka-metallicheskikh-bytovok.html">Металлические бытовки</a></li>
+                        <li><a href="/services/perevozka-derevyannykh-bytovok.html">Деревянные бытовки</a></li>
+                        <li><a href="/services/perevozka-stroitelnykh-bytovok.html">Строительные бытовки</a></li>
+                        <li><a href="/services/srochnaya-perevozka.html">Срочная перевозка</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Информация</h3>
+                    <ul>
+                        <li><a href="/info/kak-proiskhodit-perevozka.html">Как происходит перевозка</a></li>
+                        <li><a href="/info/dokumenty.html">Необходимые документы</a></li>
+                        <li><a href="/info/trebovaniya-bezopasnosti.html">Требования безопасности</a></li>
+                        <li><a href="/info/sovety.html">Советы по подготовке</a></li>
+                        <li><a href="/pricing/index.html">Цены</a></li>
+                        <li><a href="/about/index.html">О компании</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Регионы</h3>
+                    <ul>
+                        <li><a href="/regions/moskva.html">Москва</a></li>
+                        <li><a href="/regions/moskovskaya-oblast.html">Московская область</a></li>
+                        <li><a href="/regions/sankt-peterburg.html">Санкт-Петербург</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                    <p><strong>Email:</strong> info@перевозка-бытовок.рф</p>
+                    <p><strong>Режим работы:</strong> Круглосуточно, без выходных</p>
+                    <p><strong>Адрес:</strong> г. Москва</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 ПеревозкаБытовок.рф. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all') {
+                        item.classList.remove('hidden');
+                    } else {
+                        const categories = item.getAttribute('data-category');
+                        if (categories.includes(filter)) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
